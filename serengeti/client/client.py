@@ -21,29 +21,26 @@ import sys
 import os
 
 from datetime import datetime
-import libtaxii.messages_11 as tm11
 from urlparse import urljoin
-from OpenSSL import crypto
-import argparse
-import threading
-import readline
 import rlcompleter
-import glob
+import readline
+import argparse
 import warnings
+import glob
 
+from requests.packages.urllib3.exceptions import InsecureRequestWarning
 from requests.exceptions import SSLError
 from requests import Request, Session
 from requests.auth import AuthBase
 import requests
-from requests.packages.urllib3.exceptions import InsecureRequestWarning
+
 from libtaxii.constants import VID_TAXII_SERVICES_11
 from libtaxii.constants import VID_TAXII_HTTPS_10
 from libtaxii.constants import VID_TAXII_XML_11
 import libtaxii.taxii_default_query as tdq
+import libtaxii.messages_11 as tm11
 import libtaxii
-from lxml import etree
-from ConfigParser import ConfigParser
-import os
-import atexit
 
-
+def main(*args, **kwargs):
+  """Client Entry Point"""
+  pass
