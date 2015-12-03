@@ -1,4 +1,9 @@
 
 class ClientRequest(object):
   "" ""
-  pass
+  service_type
+  target_url
+  auth
+  verify
+  headers
+  
