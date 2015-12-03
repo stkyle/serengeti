@@ -41,6 +41,23 @@ import libtaxii.taxii_default_query as tdq
 import libtaxii.messages_11 as tm11
 import libtaxii
 
+from . import args
+from . import config
+from . import service.handler
+
 def main(*args, **kwargs):
   """Client Entry Point"""
-  pass
+  parser = args.get_arg_parser()
+  args = parser.parse_args()
+  
+  config = config.read_config()
+  config.merge_args(args).to_dict()
+  
+  request = config.get_request()
+  response = service.handler(request)
+  
+  print(response)
+
+if __name__ == '__main__':
+  main()
+
