@@ -1,0 +1,4 @@
+
+class ClientRequest(object):
+  "" ""
+  pass
