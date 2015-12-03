@@ -21,29 +21,13 @@ import sys
 import os
 
 from datetime import datetime
-from urlparse import urljoin
-import rlcompleter
-import readline
-import argparse
 import warnings
 import glob
 
-from requests.packages.urllib3.exceptions import InsecureRequestWarning
-from requests.exceptions import SSLError
-from requests import Request, Session
-from requests.auth import AuthBase
-import requests
-
-from libtaxii.constants import VID_TAXII_SERVICES_11
-from libtaxii.constants import VID_TAXII_HTTPS_10
-from libtaxii.constants import VID_TAXII_XML_11
-import libtaxii.taxii_default_query as tdq
-import libtaxii.messages_11 as tm11
-import libtaxii
-
 from . import args
 from . import config
-from . import service.handler
+from . import service
+
 
 def main(*args, **kwargs):
   """Client Entry Point"""
@@ -51,7 +35,7 @@ def main(*args, **kwargs):
   args = parser.parse_args()
   
   config = config.read_config()
-  config.merge_args(args).to_dict()
+  config.merge_args(args)
   
   request = config.get_request()
   response = service.handler(request)
