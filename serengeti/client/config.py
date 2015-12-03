@@ -24,7 +24,21 @@ import os
 from ConfigParser import SafeConfigParser as ConfigParser
 CONF_FILE = '.serengeti.client'
 
+CONF_OPTIONS = {'CLIENT': { 'cert':None,
+                            'cert_key': None,
+                            'ca':None,
+                            },
+                            
+                'TAXII':  { 'discovery':None,
+                            'poll': None,
+                            'inbox':None,
+                            'collection': None,
+                            'channels':None,                            
+                            },
+                }
+
 config = ConfigParser()
+
 if os.path.exists(CONF_FILE) is False:
     cfg_file = open(CONF_FILE, 'w')
     config.add_section('USER')
