@@ -69,6 +69,7 @@ class ConfigParser(_ConfigParser):
                 c.set(section, option, value)
         return c
 
+
 def create_config(filename=CONF_FILE, default_conf=CONF_OPTIONS):
     """Generates a New ConfigParser Object and writes Default Options to it"""
     config = ConfigParser()
@@ -79,3 +80,11 @@ def create_config(filename=CONF_FILE, default_conf=CONF_OPTIONS):
     return config    
 
 
+def read_config(filename=CONF_FILE, create_if_notfound=True):
+    """Generates a New ConfigParser Object and writes Default Options to it"""
+    if os.path.exists(filename) is False:
+        return create_config(filename)
+    else:
+        c = ConfigParser().read(filename)
+        return c
+    
