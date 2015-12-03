@@ -75,6 +75,12 @@ class ConfigParser(_ConfigParser):
             for option, value in d[section].iteritems():
                 c.set(section, option, value)
         return c
+    
+    def merge_args(self, argparse_obj):
+        pass
+    
+    def get_request(self):
+        pass
 
 
 def create_config(filename=CONF_FILE, default_conf=CONF_OPTIONS):
