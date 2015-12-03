@@ -36,6 +36,13 @@ CONF_OPTIONS = {'CLIENT': { 'cert':None,
                             'collection': None,
                             'channels':None,                            
                             },
+                            
+                'REQUEST_HEADERS':  { 'a':None,
+                                      'b': None,
+                                      'c':None,
+                                      'd': None,
+                                      'e':None,                            
+                                      },
                 }
 
 
