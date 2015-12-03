@@ -69,21 +69,13 @@ class ConfigParser(_ConfigParser):
                 c.set(section, option, value)
         return c
 
+def create_config(filename=CONF_FILE, default_conf=CONF_OPTIONS):
+    """Generates a New ConfigParser Object and writes Default Options to it"""
+    config = ConfigParser()
+    if os.path.exists(filename) is False:
+        with open(filename, 'w') as cfg_file:
+            config.from_dict(default_conf)
+            config.write(cfg_file)
+    return config    
 
-if os.path.exists(CONF_FILE) is False:
-    cfg_file = open(CONF_FILE, 'w')
-    config.add_section('USER')
-    config.set('USER','cert','')
-    config.set('USER','key','')
-    config.set('USER','ca','')
-    config.set('USER','ua','')
 
-    config.add_section('TAXII')
-    config.set('TAXII','host','')
-    config.set('TAXII','poll','')
-    config.set('TAXII','disc','')
-
-    config.write(cfg_file)
-    cfg_file.close()
-
-config.read(CONF_FILE)
