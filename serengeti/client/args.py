@@ -1,6 +1,8 @@
-
-
-import argparse
+# -*- coding: utf-8 -*-
+"""
+TAXII Client Command Line Args.
+"""
+import argparse as _argparse
 
 class Option(object):
     def __init__(self, *args, **kwargs):
@@ -14,12 +16,13 @@ CLI_ARGS += [Option('-p', '--port', dest='port', help='XXX')]
 CLI_ARGS += [Option('-s', '--https', dest='https', help='XXX')]
 CLI_ARGS += [Option('-c', '--cert', dest='cert', help='XXX')]
 CLI_ARGS += [Option('-k', '--key', dest='key', help='XXX')]
+CLI_ARGS += [Option('-a', '--ca', dest='ca', help='XXX')]
 CLI_ARGS += [Option('--proxy', dest='proxy', help='XXX')]
 
 
 def get_arg_parser(parser_description = None, arg_list=None):
     """
-
+    Return Arg Parser.
     """
     arg_list = arg_list or CLI_ARGS
     parser = argparse.ArgumentParser(description=parser_description)
